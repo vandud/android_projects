@@ -1,6 +1,7 @@
 package ru.vandud.quiz;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,9 +20,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     ProgressBar progressBar;
 
     String nameOfGamer;
-    int counter;
-    int rightAns;
-    int counterRightAns;
+    int counter = 0;
+    int rightAns = 0;
+    int counterRightAns = 0;
     Random random = new Random();
 
 
@@ -30,31 +31,32 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        Intent intent = getIntent();
+
+        nameOfGamer = intent.getStringExtra("name");
+
         button1 = (Button) findViewById(R.id.button1);
         button2 = (Button) findViewById(R.id.button2);
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
         textView = (TextView) findViewById(R.id.textView);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.incrementProgressBy(1);
+        progressBar.setMax(10);
 
-        nameOfGamer = getIntent().getStringExtra("name");
-        counter = 0;
 
         generateQA();
-
-
 
     }
 
     public void generateQA() {
         rightAns = random.nextInt(4) + 1;
 
-        textView.setText("Правильный ответ под номером " + Integer.toString(rightAns));
-
-        button1.setText("Ответ 1");
-        button2.setText("Ответ 2");
-        button3.setText("Ответ 3");
-        button4.setText("Ответ 4");
+        textView.setText(Integer.toString(rightAns));
+        button1.setText("1");
+        button2.setText("2");
+        button3.setText("3");
+        button4.setText("4");
     }
 
     @Override
@@ -77,14 +79,30 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void scoreActivityStart() {
+        Intent intent = new Intent(this, ScoreActivity.class);
+        intent.putExtra("countRightAns", counterRightAns);
+        intent.putExtra("name", nameOfGamer);
+        startActivity(intent);
+    }
+
     public void checkAnswer(int clickedButton) {
-        counter++;
-        if (clickedButton == rightAns) {
-            counterRightAns++;
-            generateQA();
+        if (counter < 10) {
+            counter++;
+            progressBar.setProgress(progressBar.getProgress() + 1);
+            if (clickedButton == rightAns) {
+                counterRightAns++;
+                generateQA();
+            } else {
+                generateQA();
+            }
         } else {
-            generateQA();
+            System.out.println(counter);
+            System.out.println(counterRightAns);
+            System.out.println();
+            scoreActivityStart();
         }
+
     }
 
 }

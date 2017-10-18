@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/geometric">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -18,7 +19,8 @@
         android:textAlignment="center"
         android:layout_below="@id/progressBar"
         android:layout_marginTop="20dp"
-        android:text="TextView" />
+        android:textSize="30dp"
+        android:textColor="#fff"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,26 +32,26 @@
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="onClick" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="onClick" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="onClick" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:text="Button" />
+            android:onClick="onClick" />
     </LinearLayout>
 
 </RelativeLayout>

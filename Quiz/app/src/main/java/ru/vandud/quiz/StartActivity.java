@@ -22,7 +22,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (!nameField.getText().toString().equals("")) {
-            Intent intent = new Intent(StartActivity.this, GameActivity.class);
+            Intent intent = new Intent(this, GameActivity.class);
             intent.putExtra("name", nameField.getText().toString());
             startActivity(intent);
         }
