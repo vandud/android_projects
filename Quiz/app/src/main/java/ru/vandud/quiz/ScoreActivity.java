@@ -22,6 +22,6 @@ public class ScoreActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         name.setText(intent.getStringExtra("name"));
-        score.setText(intent.getStringExtra("countRightAns"));
+        score.setText(intent.getStringExtra("val"));
     }
 }

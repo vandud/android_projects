@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/geometric">
+    android:background="@drawable/geometric"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_height="150dp"
@@ -20,8 +19,7 @@
             android:layout_marginTop="5dp"
             android:hint="Ваше Имя"
 
-            android:text="FGDGg"
-
+            android:inputType="textPersonName"
             android:textColorLink="@android:color/darker_gray" />
 
         <Button

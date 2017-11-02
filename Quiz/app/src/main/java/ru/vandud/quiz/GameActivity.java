@@ -18,12 +18,11 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     Button button3;
     Button button4;
     ProgressBar progressBar;
-
     String nameOfGamer;
-    int counter = 0;
-    int rightAns = 0;
-    int counterRightAns = 0;
-    Random random = new Random();
+    int counter;
+    int rightAns;
+    int counterRightAns;
+    Random random;
 
 
     @Override
@@ -43,20 +42,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.incrementProgressBy(1);
         progressBar.setMax(10);
-
+        progressBar.setProgress(0);
+        random = new Random();
+        counter = 0;
+        rightAns = 0;
+        counterRightAns = 0;
 
         generateQA();
 
     }
 
     public void generateQA() {
-        rightAns = random.nextInt(4) + 1;
-
-        textView.setText(Integer.toString(rightAns));
-        button1.setText("1");
-        button2.setText("2");
-        button3.setText("3");
-        button4.setText("4");
+        if (counter < 10) {
+            rightAns = random.nextInt(4) + 1;
+            textView.setText(Integer.toString(rightAns));
+            button1.setText("1");
+            button2.setText("2");
+            button3.setText("3");
+            button4.setText("4");
+        } else {
+            scoreActivityStart();
+        }
     }
 
     @Override
@@ -75,34 +81,26 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 checkAnswer(4);
                 break;
             default:
+                System.out.println(">>>error check id clicked button!!!");
                 break;
         }
     }
 
     public void scoreActivityStart() {
         Intent intent = new Intent(this, ScoreActivity.class);
-        intent.putExtra("countRightAns", counterRightAns);
+        intent.putExtra("val", Integer.toString(counterRightAns));
         intent.putExtra("name", nameOfGamer);
         startActivity(intent);
     }
 
     public void checkAnswer(int clickedButton) {
-        if (counter < 10) {
-            counter++;
-            progressBar.setProgress(progressBar.getProgress() + 1);
-            if (clickedButton == rightAns) {
-                counterRightAns++;
-                generateQA();
-            } else {
-                generateQA();
-            }
+        counter++;
+        progressBar.setProgress(counter);
+        if (clickedButton == rightAns) {
+            counterRightAns++;
+            generateQA();
         } else {
-            System.out.println(counter);
-            System.out.println(counterRightAns);
-            System.out.println();
-            scoreActivityStart();
+            generateQA();
         }
-
     }
-
 }
