@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/geometric"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainFrame">
 
+    <Button
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:text="Добавить вопрос"
+        android:onClick="onClick"
+        android:id="@+id/addQuestion"/>
     <LinearLayout
         android:layout_height="150dp"
         android:layout_width="210dp"
@@ -23,6 +33,7 @@
             android:textColorLink="@android:color/darker_gray" />
 
         <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:id="@+id/startButton"
             android:layout_width="200dp"
             android:layout_height="70dp"

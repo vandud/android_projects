@@ -1,6 +1,7 @@
 package ru.vandud.quiz;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import java.util.Random;
 
-public class GameActivity extends AppCompatActivity implements View.OnClickListener {
+public class GameActivity extends Activity implements View.OnClickListener {
 
     TextView textView;
     Button button1;
@@ -90,6 +91,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, ScoreActivity.class);
         intent.putExtra("val", Integer.toString(counterRightAns));
         intent.putExtra("name", nameOfGamer);
+        this.finish();
         startActivity(intent);
     }
 

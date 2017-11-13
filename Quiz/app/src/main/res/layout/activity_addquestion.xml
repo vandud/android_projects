@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/geometric"
+    android:id="@+id/mainFrame"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/buttonWrap">
+        <Button
+            android:id="@+id/back"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="@string/back"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClick"/>
+        <Button
+            android:id="@+id/add"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="@string/add"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onClick"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/buttonWrap"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/questionField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/question"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"/>
+
+            <EditText
+                android:id="@+id/answerAField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/answerTrue" />
+
+            <EditText
+                android:id="@+id/answerBField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/answer" />
+
+            <EditText
+                android:id="@+id/answerCField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/answer" />
+
+            <EditText
+                android:id="@+id/answerDField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/answer" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Quiz</string>
+    <string name="add">Сохранить</string>
+    <string name="back">Назад</string>
+    <string name="question">Вопрос</string>
+    <string name="answer">Ответ</string>
+    <string name="answerTrue">Правильный ответ</string>
+    <string name="restart">Заново</string>
 </resources>
