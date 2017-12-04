@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Meaning of Name</string>
+    <string name="field">Введите Имя (без пробелов)</string>
+    <string name="buttonNext">Вперед</string>
+</resources>
